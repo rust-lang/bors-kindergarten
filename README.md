@@ -1,0 +1,2 @@
+# bors-kindergarten
+test
