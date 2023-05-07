@@ -3,3 +3,6 @@ container:
 
 check_task:
   test_script: exit 0
+
+check_task_2:
+  test_script: exit 0
