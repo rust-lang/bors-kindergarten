@@ -1,5 +1,0 @@
-container:
-  image: node:latest
-
-check_task:
-  test_script: echo $CIRRUS_BRANCH
