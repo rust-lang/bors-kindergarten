@@ -2,5 +2,4 @@ container:
   image: node:latest
 
 check_task:
-  only_if: $CIRRUS_BRANCH == 'automation/bors/try'
-  test_script: exit 0
+  test_script: echo $CIRRUS_BRANCH
