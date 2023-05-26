@@ -1,1 +1,1 @@
-checks = ["Test"]
+timeout = 10
