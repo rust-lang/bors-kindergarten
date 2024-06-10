@@ -1,0 +1,28 @@
+name: Deploy to production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Run command
+        run:
+          exit 0
+  deploy:
+    name: Deployment
+    runs-on: ubuntu-latest
+    environment: production
+    concurrency:
+      group: production
+      cancel-in-progress: true
+    steps:
+      - name: deploy
+        run: echo "Deploying bors-kindergarten"
