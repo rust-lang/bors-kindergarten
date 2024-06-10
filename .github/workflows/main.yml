@@ -22,7 +22,7 @@ jobs:
     environment: production
     concurrency:
       group: production
-      cancel-in-progress: true
+    #      cancel-in-progress: true
     steps:
       - name: deploy
         run: echo "Deploying bors-kindergarten"
