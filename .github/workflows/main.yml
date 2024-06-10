@@ -31,3 +31,6 @@ jobs:
     name: Deployment staging
     runs-on: ubuntu-latest
     environment: staging
+    steps:
+      - name: deploy
+        run: echo "Deploying to staging"
