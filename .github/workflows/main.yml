@@ -26,3 +26,4 @@ jobs:
     steps:
       - name: deploy
         run: echo "Deploying bors-kindergarten"
+    # Test cancel
