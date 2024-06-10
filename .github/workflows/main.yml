@@ -27,3 +27,7 @@ jobs:
       - name: deploy
         run: echo "Deploying bors-kindergarten"
     # Test cancel
+  deploy2:
+    name: Deployment staging
+    runs-on: ubuntu-latest
+    environment: staging
