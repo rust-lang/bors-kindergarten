@@ -14,7 +14,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Print rustup components
-        run: rustup toolchain list -v
+        run: |
+          rustup toolchain list -v
+          rustc --version
 
       - name: Run command
         run:
