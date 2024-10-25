@@ -1,7 +1,7 @@
 name: Merge queue test
 
 on:
-  merge_queue:
+  merge_group:
 
 jobs:
   test-mq:
