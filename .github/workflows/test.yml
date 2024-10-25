@@ -1,18 +1,22 @@
 name: Test
 
 on:
-  push:
-    branches:
-      - automation/bors/try
+  pull_request:
 
 jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout sources
-        uses: actions/checkout@v2
-
-      - name: Run command
+      - name: Fail
+        run: |
+          sleep 60
+          exit 1
+  conclusion:
+    needs: [ test ]
+    runs-on: ubuntu-latest
+    if: ${{ always() }}
+    steps:
+      - name: Conclusion
         run:
           exit 0
