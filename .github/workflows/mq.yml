@@ -5,7 +5,7 @@ on:
 
 jobs:
   test-mq:
-    name: Test
+    name: Test merge queue
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
