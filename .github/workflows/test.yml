@@ -5,7 +5,7 @@ on:
 
 jobs:
   test:
-    name: Test
+    name: Test before conclusion
     runs-on: ubuntu-latest
     steps:
       - name: Fail
