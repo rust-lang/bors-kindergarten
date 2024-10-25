@@ -2,10 +2,11 @@ name: Merge queue test
 
 on:
   merge_group:
+  pull_request:
 
 jobs:
   test-mq:
-    name: Test
+    name: Test merge queue
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
@@ -17,6 +18,6 @@ jobs:
           rustc --version
 
       - name: Sleep
-        run:
+        run: |
           sleep 120
           exit 0
