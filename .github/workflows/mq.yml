@@ -46,6 +46,6 @@ jobs:
           git push -u origin $BRANCH
       - name: Create PR
         if: ${{ github.event_name == 'merge_group' }}
-        run: gh pr create -B main --title 'Automatic Rustup' --body 'foo'
+        run: gh pr create -B main --title 'Automatic Rustup' --body 'bar'
         env:
           GH_TOKEN: ${{ github.token }}
