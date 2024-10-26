@@ -27,6 +27,7 @@ jobs:
     name: Create PR
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: setup bot git name and email
         run: |
           git config --global user.name 'The Miri Cronjob Bot'
