@@ -17,10 +17,6 @@ jobs:
           rustup toolchain list -v
           rustc --version
 
-      - name: Sleep
-        run: |
-          sleep 120
-          exit 0
   create_pr:
     permissions:
       # The cronjob needs to be able to push to the repo...
