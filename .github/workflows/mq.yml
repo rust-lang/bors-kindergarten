@@ -35,12 +35,17 @@ jobs:
       - name: Push changes to a branch
         if: ${{ github.event_name == 'merge_group' }}
         run: |
-          BRANCH="rustup-$(date -u +%Y-%m-%d)"
-          git switch -c $BRANCH
+          BRANCH="rustup-$(date -u +%Y-%m-%d-%H-%M-%S)"
+          git checkout -b $BRANCH
+          ls -lha .
+          pwd
           touch a.txt
+          echo "hello" >> a.txt
           git add a.txt
           git commit -m"WIP"
           git push -u origin $BRANCH
       - name: Create PR
         if: ${{ github.event_name == 'merge_group' }}
-        run: gh pr create -B master --title 'Automatic Rustup' --body ''
+        run: gh pr create -B main --title 'Automatic Rustup' --body 'foo'
+        env:
+          GH_TOKEN: ${{ github.token }}
