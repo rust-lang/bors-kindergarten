@@ -48,4 +48,4 @@ jobs:
         if: ${{ github.event_name == 'merge_group' }}
         run: gh pr create -B main --title 'Automatic Rustup' --body 'bar'
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.PR_CREATION_TOKEN }}
