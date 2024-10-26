@@ -12,6 +12,7 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v2
 
+      # Foo
       - name: Print rustup components
         run: |
           rustup toolchain list -v
@@ -31,7 +32,7 @@ jobs:
           git config --global user.name 'The Miri Cronjob Bot'
           git config --global user.email 'miri@cron.bot'
       - name: Push changes to a branch
-        if: ${{ contains(github.event.head_commit.message, 'pr') }}
+        if: ${{ github.event_name == 'merge_group' }}
         run: |
           BRANCH="rustup-$(date -u +%Y-%m-%d)"
           git switch -c $BRANCH
@@ -40,5 +41,5 @@ jobs:
           git commit -m"WIP"
           git push -u origin $BRANCH
       - name: Create PR
-        if: ${{ contains(github.event.head_commit.message, 'pr') }}
+        if: ${{ github.event_name == 'merge_group' }}
         run: gh pr create -B master --title 'Automatic Rustup' --body ''
