@@ -21,3 +21,28 @@ jobs:
         run: |
           sleep 120
           exit 0
+  create_pr:
+    permissions:
+      # The cronjob needs to be able to push to the repo...
+      contents: write
+      # ... and create a PR.
+      pull-requests: write
+    name: Create PR
+    runs-on: ubuntu-latest
+    steps:
+      - name: setup bot git name and email
+        run: |
+          git config --global user.name 'The Miri Cronjob Bot'
+          git config --global user.email 'miri@cron.bot'
+      - name: Push changes to a branch
+        if: ${{ contains(github.event.head_commit.message, 'pr') }}
+        run: |
+          BRANCH="rustup-$(date -u +%Y-%m-%d)"
+          git switch -c $BRANCH
+          touch a.txt
+          git add a.txt
+          git commit -m"WIP"
+          git push -u origin $BRANCH
+      - name: Create PR
+        if: ${{ contains(github.event.head_commit.message, 'pr') }}
+        run: gh pr create -B master --title 'Automatic Rustup' --body ''
