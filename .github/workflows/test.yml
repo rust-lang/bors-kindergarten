@@ -8,11 +8,14 @@ on:
       - main
 
 jobs:
-  conclusion:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Wait
-        run: sleep 30
+      - run: sleep 10
+  conclusion:
+    needs: [ test ]
+    runs-on: ubuntu-latest
+    steps:
       - name: Conclusion
         run:
           exit 0
