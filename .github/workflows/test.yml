@@ -11,6 +11,8 @@ jobs:
   conclusion:
     runs-on: ubuntu-latest
     steps:
+      - name: Wait
+        run: sleep 30
       - name: Conclusion
         run:
           exit 0
