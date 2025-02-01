@@ -8,8 +8,12 @@ on:
       - main
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 60
   conclusion:
-    # Foo
+    needs: [ test ]
     runs-on: ubuntu-latest
     steps:
       - name: Conclusion
