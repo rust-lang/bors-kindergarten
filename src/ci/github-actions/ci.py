@@ -105,6 +105,7 @@ def find_run_type(ctx: GitHubCtx) -> Optional[WorkflowRunType]:
         return PRRunType()
     elif ctx.event_name == "push":
         try_build = ctx.ref in (
+            "refs/heads/rlr",
             "refs/heads/try",
             "refs/heads/try-perf",
             "refs/heads/automation/bors/try",
