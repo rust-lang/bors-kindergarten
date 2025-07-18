@@ -1,1 +1,2 @@
 timeout = 180
+merge_queue_enabled = true
