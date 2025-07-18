@@ -2,20 +2,17 @@ name: Test
 
 on:
   pull_request:
-  merge_group:
-  push:
-    branches:
-      - main
 
 jobs:
-  test:
+  sleep-30:
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 10
-  conclusion:
-    needs: [ test ]
+      - run: sleep 30
+  dynamic:
     runs-on: ubuntu-latest
     steps:
-      - name: Conclusion
-        run:
-          exit 0
+      - run: |
+          commit_msg=${{ github.event.head_commit.message }}
+          if [[ $commit_msg == *"fail"* ]]; then
+            exit 1
+          fi
