@@ -2,17 +2,37 @@ name: Test
 
 on:
   pull_request:
+  push:
+    branches:
+      - automation/bors/try
 
 jobs:
+  init:
+    runs-on: ubuntu-latest
+    steps:
+      - run: exit 0
   sleep-30:
+    needs: [ init ]
     runs-on: ubuntu-latest
     steps:
       - run: sleep 30
   dynamic:
+    needs: [ init ]
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          commit_msg=${{ github.event.head_commit.message }}
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - if: ${{ github.event_name == 'pull_request' }}
+        run: |
+          commit_msg=$(gh pr view ${{ github.event.pull_request.number }} --json body --jq '.body')
+          if [[ $commit_msg == *"fail"* ]]; then
+            exit 1
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - if: ${{ github.event_name == 'push' }}
+        run: |
+          commit_msg="${{ github.event.head_commit.message }}"
           if [[ $commit_msg == *"fail"* ]]; then
             exit 1
           fi
