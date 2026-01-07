@@ -1,1 +1,1 @@
-# CI tests
+# Testing environment for bors
