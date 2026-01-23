@@ -12,11 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: exit 0
-  sleep-30:
+  sleep-60:
     needs: [ init ]
     runs-on: ubuntu-latest
     steps:
-      - run: sleep 30
+      - run: sleep 60
   dynamic:
     needs: [ init ]
     runs-on: ubuntu-latest
