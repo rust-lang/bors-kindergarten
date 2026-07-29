@@ -12,6 +12,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: exit 0
+  ec2-job:
+    runs-on: ec2-ubuntu26.04-c8a.12xlarge-x64-linux
+    if: ${{ github.ref == 'refs/heads/automation/bors/try' }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+      - run: ls -la .
+      - run: uname -a
   sleep-60:
     needs: [ init ]
     runs-on: ubuntu-latest
