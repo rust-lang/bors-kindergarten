@@ -3,11 +3,11 @@ merge_queue_enabled = true
 report_merge_conflicts = true
 
 [ec2_runners]
-runner_group_id = 1
+runner_group_id = 8
 label_prefix = "ec2"
 region = "us-east-2"
 images = {
     "ubuntu26.04" = "/aws/service/canonical/ubuntu/server/26.04/stable/current/amd64/hvm/ebs-gp3/ami-id"
 }
-jit_runner = "repository"
+jit_runner = "organization"
 allowed_instances = ["c8a.12xlarge"]
