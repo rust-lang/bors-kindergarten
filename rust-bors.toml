@@ -3,7 +3,7 @@ merge_queue_enabled = true
 report_merge_conflicts = true
 
 [ec2_runners]
-runner_group_id = 8
+runner_group_id = 11
 label_prefix = "ec2"
 region = "us-east-2"
 images = {
