@@ -7,7 +7,7 @@ runner_group_id = 11
 label_prefix = "ec2"
 region = "us-east-2"
 images = {
-    "ubuntu26.04" = "/aws/service/canonical/ubuntu/server/26.04/stable/current/amd64/hvm/ebs-gp3/ami-id"
+    "gha" = "latest-gha-runner-ami"
 }
 jit_runner = "organization"
-allowed_instances = ["c8a.12xlarge"]
+allowed_instances = ["c8a.medium"]
