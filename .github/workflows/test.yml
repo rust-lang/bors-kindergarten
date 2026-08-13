@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - automation/bors/try
+      - automation/bors/try-perf
       - automation/bors/auto
 
 jobs:
