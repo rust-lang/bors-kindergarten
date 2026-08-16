@@ -7,9 +7,10 @@ runner_group_id = 11
 label_prefix = "ec2"
 region = "us-east-2"
 images = {
-    "gha" = "latest-gha-runner-ami"
+    "gha" = "latest-gha-runner-ami",
+    "gha_arm64" = "latest-gha-runner-ami-arm64"
 }
 jit_runner = "organization"
-allowed_instances = ["c8a.medium"]
+allowed_instances = ["c8a.medium", "t4g.micro"]
 
 [unroll]
