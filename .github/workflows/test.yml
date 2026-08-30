@@ -14,7 +14,7 @@ jobs:
     steps:
       - run: exit 0
   ec2-job:
-    runs-on: ec2-gha-c8a.medium-x64-linux
+    runs-on: simulacrum-aws-test-runner-38dc5e9e31ee143da6edc9e7daa9a0be
     if: ${{ github.ref == 'refs/heads/automation/bors/try' }}
     steps:
       - name: Checkout code
